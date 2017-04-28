@@ -1,5 +1,6 @@
 # toasty
 The fun, moderating and delicious multi-purpose Discord bot!
+
 [Website](http://toastythebot.tk)
 
 [HQ](https://discord.me/toasty)
