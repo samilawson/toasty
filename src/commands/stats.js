@@ -1,7 +1,5 @@
 const now = require('performance-now'),
-    fs = require('fs'),
     childProcess = require('child_process'),
-    statsData = JSON.parse(fs.readFileSync('./v2/data/stats.json', 'utf8')),
     Discord = require('discord.js');
 exports.run = (client, msg, args, data, errors, devs) => {
     const embed = new Discord.RichEmbed();
@@ -60,9 +58,6 @@ exports.run = (client, msg, args, data, errors, devs) => {
                         .addField('Voice Connections: ', `${client.voiceConnections.size.toLocaleString()} / ${total[3].toLocaleString()}`, true)
                         .addField('Message Latency: ', `${Math.round(client.ping)} MS`, true)
                         .addField('Discord Latency: ', `${(end - start).toFixed(0)} MS`, true)
-                        //.addField('Messages Today: ', statsData["stats"].messagesToday.toLocaleString(), true)
-                        //.addField('Commands Today: ', statsData["stats"].commandsToday.toLocaleString(), true)
-                        //.addField('Servers Today: ', statsData["stats"].serversToday, true)
                         .addField('Memory Usage: ', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${totalMemory} MB`, true)
                         .addField('Free Memory: ', `${freeMemory} MB`, true)
                         .addField('Active Memory: ', `${activeMemory} MB`, true)
