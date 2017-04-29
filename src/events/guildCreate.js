@@ -7,6 +7,8 @@ function clean(text) {
         return text;
 }
 exports.run = (client, guild) => {
+    guild.defaultChannel.sendMessage(":wave: Hey there, I'm Toasty!\nA fun, moderating and delicious multi-purpose Discord bot for all your needs!\nType, `;help` for a list of commands!\n*Info:* Some of the moderation commands such as the joinrole, modlog, joinlog, etc, require the **Bot Commander** role to be used.\nIf you have any questions, please join https://discord.me/toasty, or type, `;hq`!");  
+    
     client.user.setGame(`;help | ${client.guilds.size.toLocaleString()} Servers!`);
 
     const content = clean(`:white_check_mark: I've been invited to server **${guild.name}**\nServer ID: **${guild.id}**\nMembers: **${guild.memberCount}**\nRegion: **${guild.region}**`);
