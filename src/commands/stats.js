@@ -2,6 +2,7 @@ const now = require('performance-now'),
     childProcess = require('child_process'),
     Discord = require('discord.js');
 exports.run = (client, msg, args, data, errors, devs) => {
+    let fetchTimeStart = now();
     const embed = new Discord.RichEmbed();
     let start = now();
     msg.channel.sendMessage("```+ Fetching...```")
@@ -65,7 +66,11 @@ exports.run = (client, msg, args, data, errors, devs) => {
                         .addField('CPU Usage: ', stdout.substring(5), true)
                         .addField(`OS: `, `Ubuntu 16.0.4`, true)
                     msg.channel.sendEmbed(embed);
-                    return msg.edit('```Fetched!```');
+                    let fetchTimeEnd = now();
+                    let milliseconds = parseInt((fetchTimeEnd - fetchTimeStart % 1000) / 100),
+                        seconds = parseInt((fetchTimeEnd - fetchTimeStart / 1000) % 60);
+                    seconds = (seconds < 10) ? "0" + seconds : seconds;
+                    return msg.edit(`\`\`\`Fetched Stats! Took ${seconds}.${milliseconds} seconds.\`\`\``);
                   });
                 });
         }).catch(e => {
