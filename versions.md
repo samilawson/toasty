@@ -1,5 +1,8 @@
 # Versions
 
+3.0.6 ([8bdcb82](https://github.com/gavwin/toasty/commit/8bdcb827fc6cc159a3a788596100c8c2835b7302))
+- Changed `e` to `error` on client error event
+
 3.0.5 ([e17bd9b](https://github.com/gavwin/toasty/commit/e17bd9b93adccf9a57e9eb5fdd210ee713be3e0c))
 - Added launched shard event
 
