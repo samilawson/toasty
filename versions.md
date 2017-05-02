@@ -1,5 +1,8 @@
 # Versions
 
+3.0.7 ([98b6203](https://github.com/gavwin/toasty/commit/98b620301a3db6340d7c471070bfe4557be8636a))
+- Catching unknown errors
+
 3.0.6 ([8bdcb82](https://github.com/gavwin/toasty/commit/8bdcb827fc6cc159a3a788596100c8c2835b7302))
 - Changed `e` to `error` on client error event
 
