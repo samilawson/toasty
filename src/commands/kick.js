@@ -8,15 +8,18 @@ exports.run = (client, msg, args, data, errors) => {
     if (!msg.guild.member(client.user).hasPermission("KICK_MEMBERS")) return msg.channel.sendMessage(":no_entry_sign: **Error:** I don't have the **Kick Members** permission!");
     let modlogData = data[msg.guild.id] ? data[msg.guild.id] : {modlog: "disabled"};
     if (!modlogData.modlog) {
-        userToKick.kick();
-        msg.channel.sendMessage("**" + msg.mentions.users.first().username + "** has been kicked.");
+        userToKick.kick().then(kicked => {
+            msg.channel.sendMessage(`**${kicked.user.username}** has been kicked.`);
+        }).catch(err => { msg.channel.sendMessage(":no_entry_sign: **Error:**\n" + err); });
     } else if (modlogData.modlog === "disabled") {
-        userToKick.kick();
-        msg.channel.sendMessage("**" + msg.mentions.users.first().username + "** has been kicked.");
+        userToKick.kick().then(kicked => {
+            msg.channel.sendMessage(`**${kicked.user.username}** has been kicked.`);
+        }).catch(err => { msg.channel.sendMessage(":no_entry_sign: **Error:**\n" + err); });
     } else {
         let modlogchannel = msg.guild.channels.find("name", "mod-log").id;
-        userToKick.kick();
-        msg.reply("**" + msg.mentions.users.first().username + "** has been kicked. I've logged it in the mod log.");
+        userToKick.kick().then(kicked => {
+            msg.channel.sendMessage(`**${kicked.user.username}** has been kicked. I've logged it in the mod log.`);
+        }).catch(err => { msg.channel.sendMessage(":no_entry_sign: **Error:**\n" + err); });
         let today = new Date();
         let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
