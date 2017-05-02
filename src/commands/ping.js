@@ -5,8 +5,9 @@ exports.run = (client, msg) => {
     msg.channel.sendMessage("*Pinging...*")
         .then(m => {
             let end = now();
-            let googlePing = new Array();
-            ping('google.com', (err, ms) => { googlePing.push(ms) });
-            m.edit(`:ping_pong: Pong!\nLatency by timestamp: **${m.createdTimestamp - msg.createdTimestamp}ms**\nLatency by now(): **${(end - start).toFixed(0)}ms**\nDiscord Latency: **${Math.round(client.ping)}ms**\nGoogle latency: **${googlePing[0]}**ms`);
+            ping('google.com', (err, ms) => {
+                if (err) console.error(err);
+                m.edit(`:ping_pong: Pong!\nLatency by timestamp: **${m.createdTimestamp - msg.createdTimestamp}ms**\nLatency by now(): **${(end - start).toFixed(0)}ms**\nDiscord Latency: **${Math.round(client.ping)}ms**\nGoogle latency: **${ms}ms**`);
+          });
         });
 }
