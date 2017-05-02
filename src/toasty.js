@@ -154,7 +154,7 @@ const musicCommands = {
 
 client.on('message', msg => {
 
-    if (msg.channel.type === "dm") return; //ignore dm's
+    if (msg.channel.type === "dm") return;
     if (!msg.guild.member(client.user).hasPermission("SEND_MESSAGES")) return;
 
     let dataNSFW = data[msg.guild.id] ? data[msg.guild.id] : {nonsfw: "disabled"};
@@ -185,16 +185,14 @@ client.on('message', msg => {
             noinvite: "disabled"
         };
         if (dataNoinv.noinvite === "enabled") {
-            if (!msg.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return msg.reply("`Error:` Could not delete invite because I do not have the `Manage Messages` permission!").catch(err => {
-                msg.channel.sendMessage(`An error occured. Please report this:\n${err}`);
-            });
+            if (!msg.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return msg.reply("`Error:` Could not delete invite because I do not have the `Manage Messages` permission!");
             msg.delete().then(() => msg.reply(":no_entry_sign: There is no invite link sending allowed on this server!"));
         } else {
             return;
         }
     }
 
-    if (msg.author.bot) return; //ignore bots
+    if (msg.author.bot) return;
 
     //mention help
     if (msg.content.startsWith("<@208946659361554432> help")) {
@@ -206,7 +204,7 @@ client.on('message', msg => {
         msg.channel.sendMessage("This feature is currently down! We've run out of API calls to cleverbot.org and need donations to get more.\nType `;donate` to donate to fund more API requests for this command.");
     }
 
-    if (!msg.content.startsWith(prefix)) return; //ignore normal messages
+    if (!msg.content.startsWith(prefix)) return;
 
     if (musicCommands.hasOwnProperty(msg.content.toLowerCase().slice(1).split(' ')[0])) musicCommands[msg.content.toLowerCase().slice(1).split(' ')[0]](msg);
 
@@ -225,3 +223,5 @@ client.on('message', msg => {
 });
 
 client.login(config.token);
+
+process.on('unhandledRejection', err => console.error('Uncaught Promise Error: \n${err.stack}'));
