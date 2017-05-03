@@ -2,7 +2,6 @@ const fs = require('fs'),
       data = JSON.parse(fs.readFileSync('./v3/data/data.json', 'utf8')),
       Discord = require('discord.js');
 exports.run = (client, member) => {
-    const embed = new Discord.RichEmbed();
     let guild = member.guild;
 
     //leave message

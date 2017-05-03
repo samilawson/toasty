@@ -6,7 +6,7 @@ exports.run = (client, msg, args, data, errors, devs) => {
     const embed = new Discord.RichEmbed();
     let start = now();
     msg.channel.sendMessage("```+ Fetching...```")
-        .then(msg => {
+        .then(m => {
           let total = new Array();
           client.shard.fetchClientValues('guilds.size').then(results => {
               total.push(results.reduce((prev, val) => prev + val, 0));
@@ -49,28 +49,28 @@ exports.run = (client, msg, args, data, errors, devs) => {
                           activeMemory = activeMemory.toFixed(2);
                     embed.setColor(0x00FFE1)
                         .setAuthor(client.user.username, client.user.avatarURL)
-                        .setTitle("Toasty Statistics:")
-                        .setThumbnail(client.user.avatarURL)
-                        .addField('Shard: ', `${client.shard.id} / ${client.shard.count}`)
-                        .addField('Uptime: ', uptime, true)
-                        .addField('Servers: ', `${client.guilds.size.toLocaleString()} / ${total[0].toLocaleString()}`, true)
-                        .addField('Users: ', `${client.users.size.toLocaleString()} / ${total[1].toLocaleString()}`, true)
-                        .addField('Channels: ', `${client.channels.size.toLocaleString()} / ${total[2].toLocaleString()}`, true)
-                        .addField('Voice Connections: ', `${client.voiceConnections.size.toLocaleString()} / ${total[3].toLocaleString()}`, true)
-                        .addField('Message Latency: ', `${Math.round(client.ping)} MS`, true)
-                        .addField('Discord Latency: ', `${(end - start).toFixed(0)} MS`, true)
-                        .addField('Memory Usage: ', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${totalMemory} MB`, true)
-                        .addField('Free Memory: ', `${freeMemory} MB`, true)
-                        .addField('Active Memory: ', `${activeMemory} MB`, true)
-                        .addField('CPU Speed: ', '2.4 GHz', true)
-                        .addField('CPU Usage: ', stdout.substring(5), true)
-                        .addField(`OS: `, `Ubuntu 16.0.4`, true)
+                        .setTitle('Toasty Statistics:')
+                        .addField('Shard:', `${client.shard.id} / ${client.shard.count - 1}`, true)
+                        .addField('Uptime:', uptime, true)
+                        .addField('Servers:', `${client.guilds.size.toLocaleString()} / ${total[0].toLocaleString()}`, true)
+                        .addField('Users:', `${client.users.size.toLocaleString()} / ${total[1].toLocaleString()}`, true)
+                        .addField('Channels:', `${client.channels.size.toLocaleString()} / ${total[2].toLocaleString()}`, true)
+                        .addField('Voice Connections:', `${client.voiceConnections.size.toLocaleString()} / ${total[3].toLocaleString()}`, true)
+                        .addField('Message Latency:', `${m.createdTimestamp - msg.createdTimestamp} MS`, true)
+                        .addField('Edit Latency:', `${(end - start).toFixed(0)} MS`, true)
+                        .addField('Discord Latency:', `${Math.round(client.ping)} MS`, true)
+                        .addField('Memory Usage:', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${totalMemory} MB`, true)
+                        .addField('Free Memory:', `${freeMemory} MB`, true)
+                        .addField('Active Memory:', `${activeMemory} MB`, true)
+                        .addField('CPU Speed:', '2.4 GHz', true)
+                        .addField('CPU Usage:', stdout.substring(5), true)
+                        .addField('Operating System:', `Ubuntu 16.0.4 LTS`, true)
                     msg.channel.sendEmbed(embed);
                     let fetchTimeEnd = now();
                     let milliseconds = parseInt((fetchTimeEnd - fetchTimeStart % 1000) / 100),
                         seconds = parseInt((fetchTimeEnd - fetchTimeStart / 1000) % 60);
                     seconds = (seconds < 10) ? "0" + seconds : seconds;
-                    return msg.edit(`\`\`\`Fetched Stats! Took ${seconds}.${milliseconds} seconds.\`\`\``);
+                    return m.edit(`\`\`\`Fetched Stats! Took ${seconds}.${milliseconds} seconds.\`\`\``);
                   });
                 });
         }).catch(e => {

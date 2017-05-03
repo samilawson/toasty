@@ -6,6 +6,7 @@ exports.run = (client, msg, args) => {
     if (!member) return msg.reply(":no_entry_sign: **Error:** That user does not seem valid.");
     let name = args.join(" ");
     let role = msg.guild.roles.find("name", name);
+    if (!role) return msg.reply(`:no_entry_sign: **Error:** ${name} isn't a role on this server!`);
     let botRolePosition = msg.guild.member(client.user).highestRole.position;
     let rolePosition = role.position;
     if (botRolePosition <= rolePosition) return msg.channel.sendMessage(":no_entry_sign: **Error:** Failed to add the role to the user because my highest role is lower than the specified role.");

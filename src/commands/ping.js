@@ -7,7 +7,7 @@ exports.run = (client, msg) => {
             let end = now();
             ping('google.com', (err, ms) => {
                 if (err) console.error(err);
-                m.edit(`:ping_pong: Pong!\nLatency by timestamp: **${m.createdTimestamp - msg.createdTimestamp}ms**\nLatency by now(): **${(end - start).toFixed(0)}ms**\nDiscord Latency: **${Math.round(client.ping)}ms**\nGoogle latency: **${ms}ms**`);
+                m.edit(`:ping_pong: Pong!\nMessage latency: **${m.createdTimestamp - msg.createdTimestamp}ms**\nEdit latency: **${(end - start).toFixed(0)}ms**\nDiscord Latency: **${Math.round(client.ping)}ms**\nGoogle latency: **${ms}ms**`);
           });
         });
 }

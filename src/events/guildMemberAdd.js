@@ -2,7 +2,6 @@ const fs = require('fs'),
       data = JSON.parse(fs.readFileSync('./v3/data/data.json', 'utf8')),
       Discord = require('discord.js');
 exports.run = (client, member) => {
-    const embed = new Discord.RichEmbed();
     let guild = member.guild;
 
     //joinDM
@@ -54,6 +53,7 @@ exports.run = (client, member) => {
     if (data[guild.id].joinlog === "enabled") {
         if (member.user.bot === true) {
             let today = new Date();
+            let embed = new Discord.RichEmbed();
             let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
             let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             embed.setColor(0x32CD32)
@@ -64,6 +64,7 @@ exports.run = (client, member) => {
             guild.channels.find("name", "join-log").sendEmbed(embed);
         } else {
             let today = new Date();
+            let embed = new Discord.RichEmbed();
             let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
             let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             embed.setColor(0x32CD32)

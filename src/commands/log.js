@@ -1,4 +1,4 @@
-exports.run = (client, msg, args, embed, devs, devErr) => {
+exports.run = (client, msg, args, data, errors, devs) => {
   if (!devs.includes(msg.author.id)) return msg.reply(devErr);
   let toLog = args.join(" ");
   console.log(toLog);

@@ -11,7 +11,7 @@ const Discord = require('discord.js'),
       prefix = config.prefix,
       devs = config.devs,
       errors = {"devErr": config.devErr, "bcErr": config.bcErr};
-youTube.setKey(config.youtubeKey);
+youTube.setKey(config.youTubeToken);
 
 fs.readdir(`${__dirname}/events/`, (err, files) => {
     if (err) return console.error(err);
@@ -27,7 +27,7 @@ let queue = {};
 const musicCommands = {
     'play': (msg) => {
         if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ;add`);
-        if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
+        if (!msg.guild.voiceConnection) return musicCommands.join(msg).then(() => musicCommands.play(msg));
         if (queue[msg.guild.id].playing) return msg.channel.sendMessage('Already Playing');
         let dispatcher;
         queue[msg.guild.id].playing = true;
@@ -108,6 +108,7 @@ const musicCommands = {
             youTube.search(query, 2, function(error, result) {
                 if (error) {
                     msg.channel.sendMessage(`:no_entry_sign: **Error:**\n${error}`);
+                    console.log(error);
                 } else {
                     let url = `https://www.youtube.com/watch?v=${result.items[0]["id"].videoId}`;
                     addFromUrl(url);
@@ -131,9 +132,6 @@ const musicCommands = {
             tosend.push(`${i+1}. ${song.title} - Requested by: ${song.requester}`);
         });
         msg.channel.sendMessage(`__**${msg.guild.name}'s Music Queue:**__ Currently **${tosend.length}** songs queued ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
-    },
-    'connections': (msg) => {
-        msg.channel.sendMessage(`Currently playing some toasty music in **${client.voiceConnections.size}** voice channels.`);
     },
     'youtube': (msg) => {
         let query = msg.content.replace(';youtube', '');
@@ -224,4 +222,4 @@ client.on('message', msg => {
 
 client.login(config.token);
 
-process.on('unhandledRejection', err => console.error('Uncaught Promise Error: \n${err.stack}'));
+process.on('unhandledRejection', err => return; /*i hate you*/);
