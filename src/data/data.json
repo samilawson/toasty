@@ -22,7 +22,8 @@
   "229233997438386176": {
     "noinvite": "enabled",
     "modlog": "enabled",
-    "nonsfw": "enabled"
+    "nonsfw": "enabled",
+    "joinMessage": "**Welcome to Ultimate Roleplayers of Robloxia {user}! You will not be able to speak until your role is manually added. If you are not in the ROBLOX group, please join that to have a role applied to you. https://www.roblox.com/groups/group.aspx?gid=2909302**\nEnjoy your time here!"
   },
   "272516952394694659": {
     "modlog": "enabled"
@@ -160,7 +161,7 @@
     "leaveMessage": "Goodbye!"
   },
   "295269855681314817": {
-    "joinMessage": "Bien le bonjour dans la secte {user}",
+    "joinMessage": "Plop ! Un {user} sauvage vient d'apparaître !",
     "leaveMessage": "Hasta la vista {user}"
   },
   "284401992095236096": {
@@ -200,8 +201,11 @@
     "joinDM": "Welcome to the clan!"
   },
   "236608257987182593": {
-    "joinDM": "test",
-    "modlog": "disabled"
+    "joinDM": "",
+    "modlog": "disabled",
+    "noinvite": "disabled",
+    "nonsfw": "disabled",
+    "joinRole": ""
   },
   "302811651327918082": {
     "joinDM": "Welcome to the Server Of Time!\nTHE MORE YOU PARTICIPATE IN THE CHAT, THE HIGHER YOUR RANK IS!!! \nBut please, do not spam just to raise up your rank. If there are any signs of spamming, I will not hesitate to ban, mute, or assign a No xp role (you cannot gain xp with this role), depending on the circumstances.\nIf you are banned, you will be banned forever, and you will not be able to access this server anymore.\nJust do what is right, and don't spam, hack (I have no idea why anybody would hack discord), advertise, impersonate, harass, or do anything that may be suspicious, and have fun! 😉\n\nRole rewards:\nScratchers Of Time - Level 1\nBronze - Level 5\nSilver - Level 10\nGold - Level 15\nPlatinum - Level 20\nMaster Scratchers - Level 30 (special hidden text channel revealed at this rank!)\nElite Scratchers - Level 40\nOverlords - Level 50\nTrusted Scratchers - Assigned by <@302811134744854530> or <@263071636175978506>; highest rank you can get.\nLearn how to use some of the bots at the <#302867819362648076> text channel!\nPlease try to only use commands in the <#305354337977237504> text channel."
@@ -456,13 +460,18 @@
     "joinMessage": "Welcome {user} to the server, be sure to ask any questions to any of the staff members if you have them. Read the rules and lastly, Have Fun!"
   },
   "299768349020127233": {
-    "noinvite": "enabled"
+    "noinvite": "enabled",
+    "joinDM": "Welcome to Jolly Roger Matey! arrrr"
   },
   "309385645149650955": {
-    "joinRole": "New_Joiner",
-    "joinMessage": "Welcome to FanfictionRP! Please read the <#309387960971821056> chat and PM @Toastito-[Toastito] what roles you want. And dont forget to have fun!"
+    "joinRole": "New-Join",
+    "joinMessage": "Welcome!!",
+    "modlog": "enabled"
   },
   "308286790098485248": {
     "joinRole": "Visitor/Member/Staff"
+  },
+  "306450144625164288": {
+    "party": "agar.io/#2MMJDT"
   }
 }

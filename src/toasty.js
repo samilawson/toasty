@@ -10,7 +10,7 @@ const Discord = require('discord.js'),
       config = require('./config.json'),
       prefix = config.prefix,
       devs = config.devs,
-      errors = {"devErr": config.devErr, "bcErr": config.bcErr};
+      errors = {"devErr": config.devErr, "ubcErr": config.bcErr, "sbcErr": config.sbcErr};
 youTube.setKey(config.youTubeToken);
 
 fs.readdir(`${__dirname}/events/`, (err, files) => {
@@ -221,5 +221,3 @@ client.on('message', msg => {
 });
 
 client.login(config.token);
-
-process.on('unhandledRejection', err => return; /*i hate you*/);
