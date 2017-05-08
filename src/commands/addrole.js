@@ -4,7 +4,7 @@ exports.run = (client, msg, args) => {
     if (msg.mentions.users.size === 0) return msg.reply(":no_entry_sign: Please mention a user to give the role to.\nExample: `;addrole @user Members`");
     let member = msg.guild.member(msg.mentions.users.first());
     if (!member) return msg.reply(":no_entry_sign: **Error:** That user does not seem valid.");
-    let name = args.join(" ");
+    let name = msg.content.split(" ").splice(2).join(" ");
     let role = msg.guild.roles.find("name", name);
     if (!role) return msg.reply(`:no_entry_sign: **Error:** ${name} isn't a role on this server!`);
     let botRolePosition = msg.guild.member(client.user).highestRole.position;

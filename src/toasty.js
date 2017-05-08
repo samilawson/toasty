@@ -110,6 +110,7 @@ const musicCommands = {
                     msg.channel.sendMessage(`:no_entry_sign: **Error:**\n${error}`);
                     console.log(error);
                 } else {
+                    if (!result.items[0]["id"]) return msg.reply(":no_entry_sign: **Error:** There was an issue getting that song, please try a YouTube video URL instead.");
                     let url = `https://www.youtube.com/watch?v=${result.items[0]["id"].videoId}`;
                     addFromUrl(url);
                 }

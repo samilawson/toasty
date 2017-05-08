@@ -6,7 +6,6 @@ exports.run = (client, member) => {
 
     //leave message
     if (!data[guild.id]) data[guild.id] = {"leaveMessage": "disabled"};
-    if (!data[guild.id].leaveMessage) return;
     if (data[guild.id].leaveMessage !== "disabled") {
         if (data[guild.id].leaveMessage.includes('{user}')) {
             let leaveMessage = data[guild.id].leaveMessage;
@@ -19,7 +18,6 @@ exports.run = (client, member) => {
 
     //joinlog
     if (!data[guild.id]) data[guild.id] = {"joinlog": "disabled"};
-    if (!data[guild.id].joinlog) return;
     if (data[guild.id].joinlog === "enabled") {
         if (member.user.bot === true) {
             let embed = new Discord.RichEmbed();
@@ -44,7 +42,5 @@ exports.run = (client, member) => {
                 .setFooter(date + ` at ` + time)
             guild.channels.find("name", "join-log").sendEmbed(embed);
         }
-    } else {
-        return;
     }
 }

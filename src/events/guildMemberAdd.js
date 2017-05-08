@@ -6,16 +6,10 @@ exports.run = (client, member) => {
 
     //joinDM
     if (!data[guild.id]) data[guild.id] = {"joinDM": "disabled"};
-    if (!data[guild.id].joinDM) return;
-    if (data[guild.id].joinDM !== "disabled") {
-        member.sendMessage(data[guild.id].joinDM);
-    } else {
-        return;
-    }
+    if (data[guild.id].joinDM !== "disabled") member.sendMessage(data[guild.id].joinDM);
 
     //join message
     if (!data[guild.id]) data[guild.id] = {"joinMessage": "disabled"};
-    if (!data[guild.id].joinMessage) return;
     if (data[guild.id].joinMessage !== "disabled") {
         if (data[guild.id].joinMessage.includes('{user}')) {
             let joinMessage = data[guild.id].joinMessage;
@@ -28,7 +22,6 @@ exports.run = (client, member) => {
 
     //join role
     if (!data[guild.id]) data[guild.id] = {"joinRole": "disabled", "joinlog": "disabled"};
-    if (!data[guild.id].joinRole) return;
     if (data[guild.id].joinRole !== "disabled") {
         let promoteRoleCheck = guild.roles.find("name", data[guild.id].joinRole);
         if (!promoteRoleCheck) return guild.defaultChannel.sendMessage(`:no_entry_sign: **Error:** Couldn't add join role. Reason: \`${data[guild.id].joinRole}\` isn't a role on this server!`);
@@ -43,13 +36,10 @@ exports.run = (client, member) => {
             member.addRole(role);
             guild.defaultChannel.sendMessage(`Added the join role of \`${data[guild.id].joinRole}\` to **${member.user.username}**.`);
         }
-    } else {
-        return;
     }
 
     //joinlog
     if (!data[guild.id]) data[guild.id] = {"joinlog": "disabled"};
-    if (!data[guild.id].joinlog) return;
     if (data[guild.id].joinlog === "enabled") {
         if (member.user.bot === true) {
             let today = new Date();
@@ -74,7 +64,5 @@ exports.run = (client, member) => {
                 .setFooter(date + ` at ` + time)
             guild.channels.find("name", "join-log").sendEmbed(embed);
         }
-    } else {
-        return;
     }
 }

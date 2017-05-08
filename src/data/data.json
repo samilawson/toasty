@@ -58,7 +58,8 @@
   "276831508810170370": {
     "modlog": "enabled",
     "joinMessage": "Welcome to tasff, {name}",
-    "joinRole": "Human person thingy"
+    "joinRole": "Human person thingy",
+    "joinlog": "enabled"
   },
   "252826567586217985": {
     "party": "Guys"
@@ -161,8 +162,9 @@
     "leaveMessage": "Goodbye!"
   },
   "295269855681314817": {
-    "joinMessage": "Plop ! Un {user} sauvage vient d'apparaître !",
-    "leaveMessage": "Hasta la vista {user}"
+    "joinMessage": "Bien le bonjour dans la secte {user}",
+    "leaveMessage": "Hasta la vista {user}",
+    "joinRole": "Membres"
   },
   "284401992095236096": {
     "modlog": "enabled",
@@ -201,14 +203,12 @@
     "joinDM": "Welcome to the clan!"
   },
   "236608257987182593": {
-    "joinDM": "",
+    "joinDM": "testing 123",
     "modlog": "disabled",
-    "noinvite": "disabled",
-    "nonsfw": "disabled",
-    "joinRole": ""
+    "joinlog": "enabled"
   },
   "302811651327918082": {
-    "joinDM": "Welcome to the Server Of Time!\nTHE MORE YOU PARTICIPATE IN THE CHAT, THE HIGHER YOUR RANK IS!!! \nBut please, do not spam just to raise up your rank. If there are any signs of spamming, I will not hesitate to ban, mute, or assign a No xp role (you cannot gain xp with this role), depending on the circumstances.\nIf you are banned, you will be banned forever, and you will not be able to access this server anymore.\nJust do what is right, and don't spam, hack (I have no idea why anybody would hack discord), advertise, impersonate, harass, or do anything that may be suspicious, and have fun! 😉\n\nRole rewards:\nScratchers Of Time - Level 1\nBronze - Level 5\nSilver - Level 10\nGold - Level 15\nPlatinum - Level 20\nMaster Scratchers - Level 30 (special hidden text channel revealed at this rank!)\nElite Scratchers - Level 40\nOverlords - Level 50\nTrusted Scratchers - Assigned by <@302811134744854530> or <@263071636175978506>; highest rank you can get.\nLearn how to use some of the bots at the <#302867819362648076> text channel!\nPlease try to only use commands in the <#305354337977237504> text channel."
+    "joinDM": "Welcome to the Server Of Time!\nTHE MORE YOU PARTICIPATE IN THE CHAT, THE HIGHER YOUR RANK IS!!! \nBut please, do not spam just to raise up your rank. If there are any signs of spamming, I will not hesitate to ban, mute, warn, or assign a No xp role (you cannot gain xp with this role), depending on the circumstances.\nIf you are banned, you will be banned forever, and you will not be able to access this server anymore.\nJust do what is right, and don't spam, hack (I have no idea why anybody would hack discord), advertise, impersonate (no pretending to be someone on the Scratch Team or someone famous on Scratch - we can tell by asking you to send a screenshot of you being logged in and/or asking you to go on a Scratch cloud multiplayer server), harass, insult, and don't do anything that may be suspicious or inappropriate (language counts too). Also don't put any rage or hate comments or messages in the any of the channels (we do not want one person to ruin everyone's day), and have fun! 😉\n\nRole rewards:\nScratchers Of Time - Level 1\nBronze - Level 5\nSilver - Level 10\nGold - Level 15\nPlatinum - Level 20\nMaster Scratchers - Level 30\nElite Scratchers - Level 40\nOverlords - Level 50\nTrusted Scratchers - Assigned by <@302811134744854530>, @Mastermind, or the Moderators Of Time; highest rank you can get.\nLearn how to use some of the bots at the <#302867819362648076> text channel!\nIf you are new to discord, go to the <#310185521542332417> text channel.\nPlease try to only use commands in the <#305354337977237504> text channel.\n\nIf you wish to turn off the notifications for this server, click on arrow pointing down at the top left corner of your screen/website next to the server name. There should be a selection called Notification Settings. Select Only Mentions or Nothing."
   },
   "241955452760489984": {
     "joinlog": "enabled",
@@ -266,7 +266,8 @@
   "280764436761804800": {
     "joinDM": "Welcome {user} to Minecraft, the home of Minecraft-loving people! Feel free to chill.",
     "modlog": "enabled",
-    "joinlog": "enabled"
+    "joinlog": "enabled",
+    "joinRole": "Member"
   },
   "282879231166382081": {
     "joinDM": "Welcome {user} to Non-PC Gaming, the home of people who play without a PC! Feel free to chill.",
@@ -460,18 +461,49 @@
     "joinMessage": "Welcome {user} to the server, be sure to ask any questions to any of the staff members if you have them. Read the rules and lastly, Have Fun!"
   },
   "299768349020127233": {
-    "noinvite": "enabled",
-    "joinDM": "Welcome to Jolly Roger Matey! arrrr"
+    "noinvite": "enabled"
   },
   "309385645149650955": {
     "joinRole": "New-Join",
-    "joinMessage": "Welcome!!",
+    "joinMessage": "Hi and welcome and if you want to rp ask for reg, furry, or mixed-rp role",
     "modlog": "enabled"
   },
   "308286790098485248": {
-    "joinRole": "Visitor/Member/Staff"
+    "joinRole": "<@&308335135458197504>"
   },
-  "306450144625164288": {
-    "party": "agar.io/#2MMJDT"
+  "309782937111494656": {
+    "joinDM": "Hey dood. Welcome to this radicool place. Talk to other random doods who happen to be in this server. p.s. UZUME WAS HERE. WOOP!",
+    "joinMessage": "Hey {user}. Welcome to this radicool place. Talk to other random doods who happen to be in this server. p.s. UZUME WAS HERE. WOOP!"
+  },
+  "309851754797727745": {
+    "joinMessage": "Brian is fat, {user}"
+  },
+  "310147129119211520": {
+    "joinMessage": "Welcome to Calamity! We hope you'll have fun here. Please read the <#310151225758973954>",
+    "joinRole": "Recruit",
+    "modlog": "enabled"
+  },
+  "246092101937266688": {
+    "joinRole": "Member",
+    "nonsfw": "enabled"
+  },
+  "310409920191397888": {
+    "joinDM": "Oh hey! Welcome to SecureInspect. SecureInspect can detect viruses using Inspect Element, and can get you urgent help on how to secure and delete the virus. Something not looking right? Oh no! That's not good.. mention it in the <#310729381708300288> channel and our Anti-Virus staff will look into it asap and give you urgent assistance. Thanks for using SecureInspect!",
+    "joinMessage": "Hey hey hey! We're here to help 24/7, [user]. Why not check out the message you just recieved via DM for more information on how SecureInspect works, and how to get live, 100% free help."
+  },
+  "302200214544973825": {
+    "nonsfw": "enabled"
+  },
+  "287412471252123648": {
+    "modlog": "enabled",
+    "joinlog": "enabled"
+  },
+  "310669394919424001": {
+    "joinMessage": "Welcome {user} to my guild"
+  },
+  "310518306190917643": {
+    "joinlog": "enabled",
+    "joinDM": "```css\nWelcome to Genecide! We hope you will have a fun time here! -Wholf, Deletin, Toasty.\n```",
+    "modlog": "enabled"
   }
 }

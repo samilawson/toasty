@@ -3,7 +3,6 @@ exports.run = (client, msg, args, data, errors) => {
   if (args[0]) return;
     let command = args[0].toLowerCase();
     args = args.join(" ").substring(command.length + 1);
-    let guildName = msg.guild.id;
     let botCommander = msg.guild.roles.find("name", "Bot Commander");
 
     //joinrole
