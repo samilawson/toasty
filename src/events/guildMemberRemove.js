@@ -4,21 +4,19 @@ const fs = require('fs'),
 exports.run = (client, member) => {
     let guild = member.guild;
 
-    //leave message
     if (!data[guild.id]) data[guild.id] = {"leaveMessage": "disabled"};
-    if (data[guild.id].leaveMessage !== "disabled") {
+    if (data[guild.id].leaveMessage && data[guild.id].leaveMessage !== "disabled") {
         if (data[guild.id].leaveMessage.includes('{user}')) {
             let leaveMessage = data[guild.id].leaveMessage;
             let leave = leaveMessage.replace("{user}", member.user);
-            guild.defaultChannel.sendMessage(`${leave}`);
+            guild.defaultChannel.sendMessage(leave);
         } else {
             guild.defaultChannel.sendMessage(data[guild.id].leaveMessage);
         }
     }
 
-    //joinlog
     if (!data[guild.id]) data[guild.id] = {"joinlog": "disabled"};
-    if (data[guild.id].joinlog === "enabled") {
+    if (data[guild.id].joinlog && data[guild.id].joinlog === "enabled") {
         if (member.user.bot === true) {
             let embed = new Discord.RichEmbed();
             let today = new Date();

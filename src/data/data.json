@@ -57,7 +57,7 @@
   },
   "276831508810170370": {
     "modlog": "enabled",
-    "joinMessage": "Welcome to tasff, {name}",
+    "joinMessage": "Welcome to Talking and stuff for Friends, {user}",
     "joinRole": "Human person thingy",
     "joinlog": "enabled"
   },
@@ -203,9 +203,11 @@
     "joinDM": "Welcome to the clan!"
   },
   "236608257987182593": {
-    "joinDM": "testing 123",
+    "joinDM": "",
     "modlog": "disabled",
-    "joinlog": "enabled"
+    "joinlog": "enabled",
+    "joinMessage": "Welcome {user}",
+    "joinRole": "Beta Squad"
   },
   "302811651327918082": {
     "joinDM": "Welcome to the Server Of Time!\nTHE MORE YOU PARTICIPATE IN THE CHAT, THE HIGHER YOUR RANK IS!!! \nBut please, do not spam just to raise up your rank. If there are any signs of spamming, I will not hesitate to ban, mute, warn, or assign a No xp role (you cannot gain xp with this role), depending on the circumstances.\nIf you are banned, you will be banned forever, and you will not be able to access this server anymore.\nJust do what is right, and don't spam, hack (I have no idea why anybody would hack discord), advertise, impersonate (no pretending to be someone on the Scratch Team or someone famous on Scratch - we can tell by asking you to send a screenshot of you being logged in and/or asking you to go on a Scratch cloud multiplayer server), harass, insult, and don't do anything that may be suspicious or inappropriate (language counts too). Also don't put any rage or hate comments or messages in the any of the channels (we do not want one person to ruin everyone's day), and have fun! 😉\n\nRole rewards:\nScratchers Of Time - Level 1\nBronze - Level 5\nSilver - Level 10\nGold - Level 15\nPlatinum - Level 20\nMaster Scratchers - Level 30\nElite Scratchers - Level 40\nOverlords - Level 50\nTrusted Scratchers - Assigned by <@302811134744854530>, @Mastermind, or the Moderators Of Time; highest rank you can get.\nLearn how to use some of the bots at the <#302867819362648076> text channel!\nIf you are new to discord, go to the <#310185521542332417> text channel.\nPlease try to only use commands in the <#305354337977237504> text channel.\n\nIf you wish to turn off the notifications for this server, click on arrow pointing down at the top left corner of your screen/website next to the server name. There should be a selection called Notification Settings. Select Only Mentions or Nothing."
@@ -466,7 +468,8 @@
   "309385645149650955": {
     "joinRole": "New-Join",
     "joinMessage": "Hi and welcome and if you want to rp ask for reg, furry, or mixed-rp role",
-    "modlog": "enabled"
+    "modlog": "enabled",
+    "joinlog": "enabled"
   },
   "308286790098485248": {
     "joinRole": "<@&308335135458197504>"
@@ -505,5 +508,12 @@
     "joinlog": "enabled",
     "joinDM": "```css\nWelcome to Genecide! We hope you will have a fun time here! -Wholf, Deletin, Toasty.\n```",
     "modlog": "enabled"
+  },
+  "265893817717096450": {
+    "joinDM": "Welcome to Bolton County Discord if you haven't joined the group join it for the rank: https://www.roblox.com/my/groups.aspx . If you have joined the group DM or say your rank and some admin will role you. Faster way for that is to Name your self (roblox username)[your rank] BCSO. Thank you for Joining Bolton County!",
+    "modlog": "enabled"
+  },
+  "294881677958971394": {
+    "joinlog": "enabled"
   }
 }
