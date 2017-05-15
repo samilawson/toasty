@@ -38,7 +38,8 @@
     "noinvite": "enabled",
     "nonsfw": "enabled",
     "joinMessage": "Welcome {user} to Toasty HQ, the home of <@208946659361554432>! If you need help, go to <#303203727362490368> & mention the Helpers. Otherwise, feel free to chill.",
-    "modlog": "enabled"
+    "modlog": "enabled",
+    "leaveMessage": ""
   },
   "182893860127506432": {
     "modlog": "enabled",
@@ -168,10 +169,12 @@
   },
   "284401992095236096": {
     "modlog": "enabled",
-    "joinlog": "enabled"
+    "joinlog": "enabled",
+    "joinRole": "Players",
+    "joinDM": "Hi!! Welcome to the gaming Guild be sure to look at the rules!!"
   },
   "173148189426319360": {
-    "joinMessage": "Welcome {user} to the Radicool Socialist Party server! If you are a member, <@!174454715202011136> or <@!142330370300313600> should add you shortly. \n\nYours in solidarity."
+    "joinMessage": "Welcome {user} to the Radicool Socialist Party server! If you are a member, <@!174454715202011136>  or <@310085347750969346> should add you shortly. \n\nYours in solidarity."
   },
   "305137541580062722": {
     "joinlog": "enabled",
@@ -382,7 +385,7 @@
   },
   "305459140673667072": {
     "joinMessage": "Welcome!!!! Hi This is ♞ | Ҝηιgнтѕ Chat We are going to be trying out people soon we just need to do something first 🔥",
-    "joinDM": "[ This is a mostly Dual clan.  Do not be a retard and get yourself kicked for stupid reasons like kicking people if you have Mod.]",
+    "joinDM": "Weclome to **♞ | Ҝηιgнтѕ**! Have a great time here!",
     "joinRole": "♞ Guest ♞"
   },
   "289943359739527168": {
@@ -466,8 +469,8 @@
     "noinvite": "enabled"
   },
   "309385645149650955": {
-    "joinRole": "New-Join",
-    "joinMessage": "Hi and welcome and if you want to rp ask for reg, furry, or mixed-rp role",
+    "joinRole": " New-Join",
+    "joinMessage": "Welcome to FanFictionRP be sure to read the <#309575315875692544> chat and DM Atticus your character info and age. Also don't forget to read <#309387960971821056> And Have Fun!",
     "modlog": "enabled",
     "joinlog": "enabled"
   },
@@ -483,7 +486,7 @@
   },
   "310147129119211520": {
     "joinMessage": "Welcome to Calamity! We hope you'll have fun here. Please read the <#310151225758973954>",
-    "joinRole": "Recruit",
+    "joinRole": "Recruits",
     "modlog": "enabled"
   },
   "246092101937266688": {
@@ -514,6 +517,79 @@
     "modlog": "enabled"
   },
   "294881677958971394": {
+    "joinlog": "enabled"
+  },
+  "304719600103194625": {
+    "modlog": "enabled"
+  },
+  "310747054127185920": {
+    "party": "on"
+  },
+  "305518678726934528": {
+    "joinDM": "hi fam welcome to Lewie's Server, thanks for joining!",
+    "joinRole": "<@&312147326397317121>"
+  },
+  "273100388964761601": {
+    "modlog": "enabled"
+  },
+  "311784966797131776": {
+    "modlog": "enabled",
+    "joinlog": "enabled",
+    "noinvite": "enabled",
+    "joinMessage": "**Joined: {user}**",
+    "nonsfw": "enabled",
+    "joinRole": "Guest"
+  },
+  "311993909989474307": {
+    "modlog": "enabled",
+    "joinlog": "enabled",
+    "joinMessage": "Welcome to The Discord Lobby, ***{@user}***! Please enjoy your stay here!"
+  },
+  "313040750688337920": {
+    "joinMessage": "Greetings {user}! First things first: change your nickname to whatever site you wish to personify! If you aren't sure which sites are available, check https://docs.google.com/document/d/1iOEPRGVYmxLW1r-StTQzmBmxaPROZVCTdeL8ZkNfhbg/edit to see what's been claimed. You can be any site you can possibley think of, so don't worry (however, if you're a NSFW site, please keep things PG-13 in all general chats). Once all that's cleared up, feel free to join the fun!",
+    "modlog": "enabled",
+    "joinlog": "enabled",
+    "joinDM": "Greetings {user} First things first: change your nickname to whatever site you wish to personify! If you aren't sure which sites are available, check https://docs.google.com/document/d/1iOEPRGVYmxLW1r-StTQzmBmxaPROZVCTdeL8ZkNfhbg/edit to see what's been claimed. You can be any site you can possibley think of, so don't worry (however, if you're a NSFW site, please keep things PG-13 in all general chats). Once all that's cleared up, feel free to join the fun!"
+  },
+  "295572987841871884": {
+    "joinRole": ""
+  },
+  "312948463635529729": {
+    "joinRole": "Class D",
+    "nonsfw": "enabled",
+    "noinvite": "enabled",
+    "joinDM": "Welcome to the SCP Foundation.",
+    "party": "",
+    "modlog": "enabled"
+  },
+  "307775119592259585": {
+    "joinRole": "Newcomer",
+    "joinMessage": "{user}, hey nerd and welcome to the discord!",
+    "joinlog": "enabled"
+  },
+  "251521956694851584": {
+    "party": "<@307700083187515403>  <@176071949930332161>  <@86527795529777152>"
+  },
+  "312449374376558593": {
+    "joinRole": "A potato"
+  },
+  "313302401602027530": {
+    "joinRole": "Passenger"
+  },
+  "225284576275070977": {
+    "joinDM": "Welcome to backstage! We're glad you chose to join us here! Be sure to read the rules and have fun! 😃",
+    "joinRole": "Guest",
+    "modlog": "enabled"
+  },
+  "310877422255996928": {
+    "modlog": "enabled"
+  },
+  "310232870037880833": {
+    "nonsfw": "enabled",
+    "joinDM": "Welcome To The Critical Ops Clan HellFyre! We’re so excited to have you here. Before you become an official HellFyre member you must first tryout with <@!251131013164564480> , <@!310231734387998741> or <@!293909441701740544>. You must also read the rules and check the news whenever you are online. Please follow the rules or you will be removed from our server. Hope You Enjoy Your Stay! Once Again, Welcome! @everyone"
+  },
+  "309681561580863488": {
+    "modlog": "enabled",
     "joinlog": "enabled"
   }
 }

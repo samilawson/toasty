@@ -1,3 +1,3 @@
-exports.run = (client, msg, args, data) => {
+exports.run = (client, msg, args) => {
   return;
 }

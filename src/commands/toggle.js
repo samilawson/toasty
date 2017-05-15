@@ -88,9 +88,7 @@ exports.run = (client, msg, args, data, errors) => {
               msg.reply("The modlog feature is now **enabled**.");
               msg.guild.createChannel("mod-log", "text")
               .then(modlog => {
-                  setTimeout(() => {
                       modlog.sendMessage("You have enabled the modlog. To disable this and delete this channel, type `;toggle modlog`");
-                  }, 2500);
               }).catch(e => {
                 msg.channel.sendMessage(":no_entry_sign: There was an error! Report this please:\n" + e);
               });
@@ -101,9 +99,7 @@ exports.run = (client, msg, args, data, errors) => {
               msg.reply("The modlog feature is now **enabled**.");
               msg.guild.createChannel("mod-log", "text")
               .then(modlog => {
-                  setTimeout(() => {
                       modlog.sendMessage("You have enabled the modlog. To disable this and delete this channel, type `;toggle modlog`");
-                  }, 2500);
               }).catch(e => {
                 msg.channel.sendMessage(":no_entry_sign: There was an error! Report this please:\n" + e);
               });
@@ -140,10 +136,8 @@ exports.run = (client, msg, args, data, errors) => {
               fs.writeFileSync('./v3/data/data.json', updateValue);
               msg.reply("The joinlog feature is now **enabled**.");
               msg.guild.createChannel("join-log", "text")
-              .then(joinlog => {
                   setTimeout(() => {
                       joinlog.sendMessage("You have enabled the joinlog. To disable this and delete this channel, type `;toggle joinlog`");
-                  }, 2500);
               }).catch(e => {
                 msg.channel.sendMessage(":no_entry_sign: There was an error! Report this please:\n" + e);
               });
@@ -154,9 +148,7 @@ exports.run = (client, msg, args, data, errors) => {
               msg.reply("The joinlog feature is now **enabled**.");
               msg.guild.createChannel("join-log", "text")
               .then(joinlog => {
-                  setTimeout(() => {
-                      modlog.sendMessage("You have enabled the joinlog. To disable this and delete this channel, type `;toggle joinlog`");
-                  }, 2500);
+                      joinlog.sendMessage("You have enabled the joinlog. To disable this and delete this channel, type `;toggle joinlog`");
               }).catch(e => {
                 msg.channel.sendMessage(":no_entry_sign: There was an error! Report this please:\n" + e);
               });
