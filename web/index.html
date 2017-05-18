@@ -7,11 +7,12 @@
     <title>Toasty the Discord bot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css">
-  <link rel="stylesheet" href="style.css" type="text/css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="/socket.io/socket.io.js"></script>
   </head>
   <body style="font-family: 'Lato', cursive;">
         <!-- Static navbar -->
@@ -28,7 +29,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://discordapp.com/oauth2/authorize?client_id=208946600620326912&scope=bot&permissions=403041318">Invite</a></li>
+            <li><a href="https://discordapp.com/oauth2/authorize?client_id=208946600620326912&scope=bot&permissions=8">Invite Me</a></li>
             <li><a href="https://discordapp.com/invite/sKCDdfp">Support Server</a></li>
             <li><a href="/features">Features</a></li>
             <li><a href="https://toastythebot.bigcartel.com">Donate</a></li>
@@ -39,13 +40,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="typed.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function(){
-      Typed.new('.typingStats', {
-        strings: ["Serving over 1,500 servers", "Serving over 70,000 users", "Serving over 20,000 channels"],
-        typeSpeed: 0,
-        loop: true,
-        loopCount: null,
-        showCursor: true
+    document.addEventListener('DOMContentLoaded', function(){
+      var socket = io('http://149.56.143.31/');
+      $(document).ready(function() {
+        socket.emit('stats', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+      socket.on('stats', function(stats){
+        Typed.new('.typingStats', {
+          strings: ["I'm currently serving " + stats["stats"].servers.toLocaleString() + " servers,", "" + stats["stats"].users.toLocaleString() + " users,", "" + stats["stats"].channels.toLocaleString() + " channels,", "and " + stats["stats"].voiceConnections.toLocaleString() + " voice channels."],
+          typeSpeed: 0,
+          loop: true,
+          loopCount: null,
+          showCursor: true
+        });
       });
   });
     </script>
@@ -55,6 +64,7 @@
       <h3 style="font-size: 40px;">A discord bot that's useful, fun and delicious!</h3>
       <div style="font-size: 30px;" class="typingStats"></div>
              </center></div>
+             <ul id="m"></ul>
               <div style="font-size: 15px;" class="footer">&copy; Toasty 2017.</div>
               </div>
   </body>

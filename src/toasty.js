@@ -22,7 +22,7 @@ fs.readdir(`${__dirname}/events/`, (err, files) => {
     });
 });
 
-let queue = {};
+let queue = new Object();
 
 const musicCommands = {
     'play': (msg) => {

@@ -308,8 +308,8 @@
   },
   "264249471863488513": {
     "modlog": "enabled",
-    "joinlog": "enabled",
-    "joinRole": "<@&264250506963058688>"
+    "joinlog": "disabled",
+    "joinRole": "Newcomer"
   },
   "303620541364043778": {
     "joinRole": "Members",
@@ -555,12 +555,13 @@
     "joinRole": ""
   },
   "312948463635529729": {
-    "joinRole": "Class D",
+    "joinRole": "Class-D",
     "nonsfw": "enabled",
     "noinvite": "enabled",
     "joinDM": "Welcome to the SCP Foundation.",
     "party": "",
-    "modlog": "enabled"
+    "modlog": "enabled",
+    "joinlog": "enabled"
   },
   "307775119592259585": {
     "joinRole": "Newcomer",
@@ -590,6 +591,31 @@
   },
   "309681561580863488": {
     "modlog": "enabled",
-    "joinlog": "enabled"
+    "joinlog": "enabled",
+    "joinMessage": "welcome {user} to purgatory",
+    "joinDM": "you are a low life gain my trust to advance in my server",
+    "joinRole": "low life",
+    "leaveMessage": "I guess you can leave purgatory"
+  },
+  "303238788665180160": {
+    "party": "not set, use `;setparty` to set the party.",
+    "joinMessage": "Welcome {user} to Dost Thou Even Hoist, a general purpose Discord server."
+  },
+  "285337490515296256": {
+    "joinRole": "Users"
+  },
+  "301738573701316608": {
+    "party": "not set, use `;setparty` to set the party.",
+    "joinMessage": "Hello, Welcome {user} to Excotic Radio© Read <#301772053512716298>  Please and obey them or you may get kicked or Banned. The Founder is iiExotica (heartburn0). The Owners are iiExotixa (heartburn0) henry (MI6 LIMA 209). The Co-owners are GeordanAllen and DJ Boomer. Our management team are Lexmark66 and RedWings10531. Want to be our newest memeber of the staff? DM any of thw names above."
+  },
+  "189728430982561793": {
+    "nonsfw": "enabled"
+  },
+  "313045331312902175": {
+    "joinMessage": "Welcome to my Clan Leaders Are Devil And Goblin!!!!"
+  },
+  "277925509353046027": {
+    "joinMessage": "Bienvenue poto!",
+    "modlog": "enabled"
   }
 }
