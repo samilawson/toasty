@@ -1,3 +1,3 @@
-exports.run = (client, e) => {
-    console.warn(e);
+exports.run = (client, warn) => {
+    console.warn(warn);
 }
