@@ -23,6 +23,6 @@ io.on('connection', (socket) => {
   });
 });
 
-app.on('listening', () => {
+io.on('listening', () => {
     console.log('Server online and listening for connections.');
 });
