@@ -1,3 +1,4 @@
 src/config.json
 src/data/data.json
 web/stats.json
+web/node_modules
