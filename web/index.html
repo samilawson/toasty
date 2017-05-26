@@ -49,7 +49,7 @@
       });
       socket.on('stats', function(stats) {
         Typed.new('.typingStats', {
-          strings: ["I'm currently serving " + stats["stats"].servers.toLocaleString() + " servers,", "" + stats["stats"].users.toLocaleString() + " users,", "" + stats["stats"].channels.toLocaleString() + " channels,", "and " + stats["stats"].voiceConnections.toLocaleString() + " voice channels."],
+          strings: [stats["stats"].servers.toLocaleString() + " servers,", "" + stats["stats"].users.toLocaleString() + " users,", "" + stats["stats"].channels.toLocaleString() + " channels,", "and " + stats["stats"].voiceConnections.toLocaleString() + " voice channels."],
           typeSpeed: 0,
           loop: true,
           loopCount: null,
@@ -62,7 +62,7 @@
               <div style="padding-top: 57px;">
     <center><h1 style="font-size: 80px;" class="animated pulse infinite">Toasty</h1>
       <h3 style="font-size: 40px;">A discord bot that's useful, fun and delicious!</h3>
-      <div style="font-size: 30px;" class="typingStats"></div>
+      <div style="font-size: 30px;" class="typingStats">I'm currently serving </div>
              </center></div>
              <ul id="m"></ul>
               <div style="font-size: 15px;" class="footer">&copy; Toasty 2017.</div>
