@@ -1,4 +1,5 @@
 src/config.json
-src/data/data.json
+src/data/servers.json
+src/node_modules
 web/stats.json
 web/node_modules
