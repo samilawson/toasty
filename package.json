@@ -1,0 +1,54 @@
+{
+  "name": "toasty",
+  "version": "3.3.0",
+  "description": "Toasty - a moderating, fun, music playing and delicious bot",
+  "main": "toasty.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gavwin/toasty.git"
+  },
+  "keywords": [
+    "toasty"
+  ],
+  "author": "gavwin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gavwin/toasty/issues"
+  },
+  "homepage": "https://github.com/gavwin/toasty#readme",
+  "dependencies": {
+    "common-tags": "^1.4.0",
+    "discord.js": "^11.1.0",
+    "discord.js-commando": "git://github.com/Gawdl3y/discord.js-commando.git#11.1",
+    "escape-string-regexp": "^1.0.5",
+    "express": "^4.15.3",
+    "fs": "0.0.1-security",
+    "google": "^2.1.0",
+    "indico.io": "^0.10.5",
+    "knock-knock-jokes": "^1.7.0",
+    "l33tsp34k": "^1.0.5",
+    "moment": "^2.18.1",
+    "moment-duration-format": "^1.3.0",
+    "moment-timezone": "^0.5.13",
+    "newsapi": "^1.0.2",
+    "node-json-db": "^0.7.3",
+    "node-launch": "^1.0.1",
+    "opusscript": "0.0.3",
+    "path": "^0.12.7",
+    "performance-now": "^2.1.0",
+    "pm2": "^2.4.6",
+    "pokemon-random-name": "^1.0.4",
+    "request-promise": "^4.2.1",
+    "snekfetch": "^3.1.8",
+    "socket.io": "^2.0.3",
+    "superagent": "^3.5.2",
+    "url": "^0.11.0",
+    "uws": "^0.14.5",
+    "vm": "^0.1.0",
+    "youtube-node": "^1.3.0",
+    "ytdl-core": "^0.14.2"
+  }
+}
