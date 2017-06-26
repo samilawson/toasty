@@ -6,17 +6,12 @@ exports.run = (client, member) => {
   const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data/servers.json')));
   const guild = member.guild;
 
-  if (!data[guild.id]) data[guild.id] = {
-    'joinDM': 'disabled',
-    'joinMessage': 'disabled',
-    'joinRole': 'disabled',
-    'joinlog': 'disabled'
-  };
-
+  if (!data[guild.id]) data[guild.id] = {"joinDM": "disabled"};
   if (data[guild.id].joinDM && data[guild.id].joinDM !== 'disabled') member.send(data[guild.id].joinDM);
 
+  if (!data[guild.id]) data[guild.id] = {"joinMessage": "disabled"};
   if (data[guild.id].joinMessage && data[guild.id].joinMessage !== 'disabled') {
-    let joinMessage = data[guild.id].joinMessage
+    let joinMessage = data[guild.id].joinMessage;
     if (data[guild.id].joinMessage.includes('{user}')) {
       let message = joinMessage.replace('{user}', member.user);
       guild.defaultChannel.send(message);
@@ -25,6 +20,7 @@ exports.run = (client, member) => {
     }
   }
 
+  if (!data[guild.id]) data[guild.id] = {"joinRole": "disabled", "joinlog": "disabled"};
   if (data[guild.id].joinRole && data[guild.id].joinRole !== 'disabled') {
     let joinRole = data[guild.id].joinRole;
     let role = guild.roles.find('name', joinRole);
@@ -40,6 +36,7 @@ exports.run = (client, member) => {
       }
   }
 
+  if (!data[guild.id]) data[guild.id] = {"joinlog": "disabled"};
   if (data[guild.id].joinlog && data[guild.id].joinlog === 'enabled') {
     let embed = new RichEmbed();
     let today = new Date();

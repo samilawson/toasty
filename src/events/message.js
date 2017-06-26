@@ -59,7 +59,7 @@ const musicCommands = {
         msg.member.voiceChannel.leave();
       });
       msg.channel.send(`:notes: Now playing **${song.title}** as requested by **${song.requester}**`);
-      dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes: 1 });
+      setTimeout(() => { dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes: 1 }); }, 300);
       let collector = msg.channel.createCollector(m => m);
       collector.on('collect', m => {
         if (m.content.startsWith(prefix+'pause')) {
@@ -78,14 +78,14 @@ const musicCommands = {
           });
         } else if (m.content.startsWith(prefix+'volume')) {
           if (m.content === prefix+'volume')  {
-            let vol = dispatcher.volume*100;
+            let vol = dispatcher.volume * 100;
             if (vol >= 125) return msg.channel.send(`:loud_sound: The volume is **${vol}**.`);
             if (vol >= 75 && vol <= 124) return msg.channel.send(`:sound: The volume is **${vol}**.`);
             if (vol <= 74) return msg.channel.send(`:speaker: The volume is **${vol}**.`);
           }
           let vol = parseInt(m.content.replace(prefix+'volume ', ''));
           if (vol > 200 || vol < 0) return msg.channel.send(':no_entry_sign: You can only set the volume from `0-200`!');
-          if (vol >= 125) msg.channel.send(`:loud_sound: Set the volume to **${vol}**.`);
+          if (vol >= 125) msg.channel.send(`:loud_sound: Set the volume to **${vol}**.\n(The higher the volume is, the lower the quality so you might want to consider raising the voice channel volume or your speaker volume)`);
           if (vol >= 75 && vol <= 124) msg.channel.send(`:sound: Set the volume to **${vol}**.`);
           if (vol <= 74) msg.channel.send(`:speaker: Set the volume to **${vol}**.`);
 		      dispatcher.setVolume((vol/100));
@@ -104,14 +104,15 @@ const musicCommands = {
       dispatcher.once('end', () => {
         collector.stop();
         if (queue[msg.guild.id].songs.length === 0) {
+          delete queue[msg.guild.id];
           delete dispatcher;
         } else {
           setTimeout(() => {
             delete dispatcher;
+            if (queue[msg.guild.id].volume > 50) dispatcher.setVolume(queue[msg.guild.id].volume);
             play(queue[msg.guild.id].songs.shift());
           }, 200);
         }
-        if (queue[msg.guild.id].volume) dispatcher.setVolume(queue[msg.guild.id].volume);
       });
       dispatcher.on('error', (err) => {
         return msg.channel.send(':no_entry_sign: **Error:** An unknown error occured:\n'+err).then(() => {
@@ -179,5 +180,37 @@ const musicCommands = {
     if (queue[msg.guild.id] === undefined) return msg.channel.send(':no_entry_sign: There are currently no songs in the server queue.');
     queue[msg.guild.id].songs.splice(0, queue[msg.guild.id].songs.length);
     msg.reply(':white_check_mark: I\'ve cleared the server queue.');
+  },
+  'playlist': (msg) => {
+    const playlists = ['pop', 'hiphop', 'electro', 'classical', 'rock-n-roll', 'chill', 'jazz', 'metal', 'retro', 'korean', 'toast'];
+    if (msg.content === prefix+'playlist') return msg.reply(`Please specify a playlist to play!\nPlaylists: \`${playlists.join(', ')}\``);
+    let playlist = msg.content.replace(prefix+'playlist ', '').toLowerCase();
+    if (!playlists.includes(playlist)) return msg.reply(`That isnt an avaliable playlist.\nPlaylists: \`${playlists.join(', ')}\``);
+    function cap(text) { return text.charAt(0).toUpperCase() + text.slice(1) }
+
+    const getInfo = require('util').promisify(yt.getInfo);
+
+    async function doPlaylist(playlist, msg) {
+      const m = await msg.channel.send(`Downloading the **${playlist}** playlist...`);
+      setTimeout(() => { m.edit(`Downloading the **${playlist}** playlist...\nPlease be patient, this may take up to two minutes.\nYou can run the \`play\` command while the playlist is downloading.`); }, 3000);
+      const songs = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'data', `playlists/${playlist}.txt`)).toString().split('\n');
+
+      for (let i = 0, len = songs.length; i < 15; i++) {
+        if (i === 15) break;
+        const r = Math.floor(Math.random() * (len - 0 + 1)) + 0;
+          try {
+            const info = await getInfo(songs[r]);
+            if (!queue.hasOwnProperty(msg.guild.id)) queue[msg.guild.id] = {}, queue[msg.guild.id].playing = false, queue[msg.guild.id].songs = [];
+            queue[msg.guild.id].songs.push({
+              url: songs[r],
+              title: info.title,
+              requester: `${cap(playlist)} Auto Playlist`
+            });
+          } catch(e) {}
+      }
+      m.edit(`:white_check_mark: The **${playlist}** playlist has been queued!\n15 songs have been queued from the playlist. To queue another 15 run the \`playlist\` command again.`);
+    }
+
+    doPlaylist(playlist, msg);
   }
 };

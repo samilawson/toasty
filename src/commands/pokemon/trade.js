@@ -51,8 +51,8 @@ module.exports = class TradeCommand extends Command {
     if (!data[msg.author.id]) return msg.reply(':no_entry_sign: You can\'t trade Pokemon if you have no Pokemon!');
     if (!data[user.id]) return msg.say(`<@${user.id}>, :no_entry_sign: You can't trade if you have no Pokemon!`);
 
-    if(!data[msg.author.id].pokemon[pokemon1]) return msg.reply(`:no_entry_sign: You don\'t have **${pokemon1}** so you can't trade it!`);
-    if(!data[user.id].pokemon[pokemon2]) return msg.say(`<@${user.id}>, :no_entry_sign: You don\'t have **${pokemon2}** so you can't trade it!`);
+    if (!data[msg.author.id].pokemon[pokemon1]) return msg.reply(`:no_entry_sign: You don\'t have **${pokemon1}** so you can't trade it!`);
+    if (!data[user.id].pokemon[pokemon2]) return msg.say(`<@${user.id}>, :no_entry_sign: You don\'t have **${pokemon2}** so you can't trade it!`);
 
     const trade = function trade() {
       if (data[msg.author.id].pokemon[pokemon2]) {
@@ -118,10 +118,10 @@ module.exports = class TradeCommand extends Command {
           const co1 = new Array();
           const co1Map = collected1.map((m) => co1.push(m));
           try {
-            if (['yes', 'y'].includes(co1[0].content) && co1[0].author.id === user.id) {
+            if (['yes', 'y'].includes(co1[0].content.toLowerCase()) && co1[0].author.id === user.id) {
               msg.say(`<@${co1[0].author.id}>, :white_check_mark: okay.`);
               pokemonEvent.emit('secondConfirm');
-            } else if (['n', 'no', 'cancel'].incudes(co1[0].content) && co1[0].author.id === user.id) {
+            } else if (['n', 'no', 'cancel'].incudes(co1[0].content.toLowerCase()) && co1[0].author.id === user.id) {
               return msg.say(`Okay. Cancelling trade between **${msg.author.username}** and **${user.username}**.`);
             }
           } catch(err) { //try catch b/c of unknown ['n', 'no', 'cancel'].includes is not a func error
@@ -129,7 +129,7 @@ module.exports = class TradeCommand extends Command {
           }
         }).catch(() => msg.say(`Cancelling trade between **${msg.author.username}** and **${user.username}**. Took longer than 15 seconds for a reply.`));
 
-      } else if (['n', 'no', 'cancel'].incudes(co[0].content) && co[0].author.id === msg.author.id) {
+      } else if (['n', 'no', 'cancel'].incudes(co[0].content.toLowerCase()) && co[0].author.id === msg.author.id) {
         return msg.say(`Okay. Cancelling trade between **${msg.author.username}** and **${user.username}**.`);
       }
 

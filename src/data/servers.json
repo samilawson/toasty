@@ -23,7 +23,8 @@
     "noinvite": "enabled",
     "modlog": "enabled",
     "nonsfw": "enabled",
-    "joinMessage": "**Welcome to Ultimate Roleplayers of Robloxia {user}! You will not be able to speak until your role is manually added. If you are not in the ROBLOX group, please join that to have a role applied to you. https://www.roblox.com/groups/group.aspx?gid=2909302**\nEnjoy your time here!"
+    "joinMessage": "**Welcome to the Ultimate Roleplayers of Robloxia Discord server {user}! Please link your ROBLOX account to Discord by typing !verify in <#318808519459471387>. You will not be able to chat until you do so and you get a role applied to you.**",
+    "joinRole": "Unverified"
   },
   "272516952394694659": {
     "modlog": "enabled"
@@ -610,5 +611,61 @@
   "277925509353046027": {
     "joinMessage": "Bienvenue poto!",
     "modlog": "enabled"
+  },
+  "254779673148522496": {
+    "joinMessage": "A wild {user} appeared!",
+    "leaveMessage": "{user} vanished!",
+    "joinDM": "Hello! I'm Roasty, our moderator. So you don't get confused, this is how the channels are set up.. \"Jelly Cabin\" and \"Lima\" are the normal channels that everyone with normal privileges can join and use. \"Pinto Cabin\" and \"Soy\" is reserved for those with elevated privileges. and \"Baked Cabin\" is for everyone *plus* anyone who has had some privileges revoked (like being able to join or see certain channels.) Have fun!"
+  },
+  "326174280515846145": {
+    "modlog": "enabled"
+  },
+  "317570975908495361": {
+    "joinRole": "Member"
+  },
+  "321350509971767297": {
+    "modlog": "enabled"
+  },
+  "297442085861064705": {
+    "nonsfw": "enabled",
+    "noinvite": "enabled",
+    "joinRole": "Member"
+  },
+  "324733149428973570": {
+    "modlog": "enabled",
+    "joinlog": "enabled"
+  },
+  "286896120947539968": {
+    "joinlog": "enabled"
+  },
+  "327418342044467200": {
+    "joinDM": "suck my dick"
+  },
+  "328349343302156298": {
+    "modlog": "enabled"
+  },
+  "318584379137982484": {
+    "modlog": "enabled"
+  },
+  "327827149274742785": {
+    "modlog": "enabled"
+  },
+  "295969243474821121": {
+    "modlog": "enabled"
+  },
+  "300671650674900992": {
+    "joinMessage": "welcome! please introduce yourself so we can get to know you.",
+    "joinRole": "Casual Gays",
+    "leaveMessage": "smell ya later"
+  },
+  "236608257987182593": {
+    "joinMessage": "disabled",
+    "leaveMessage": "disabled"
+  },
+  "206810019218325504": {
+    "joinRole": "Guest"
+  },
+  "327572860308684810": {
+    "joinDM": "Bienvenue ,Avant de compltement integrer notre communauté remplis ce formulaire stp 😉 :https://goo.gl/forms/uIk3vrDyG6jqZ7Ef1"
   }
 }

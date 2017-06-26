@@ -30,13 +30,17 @@ module.exports = class PokemonCommand extends Command {
     if (!users.includes(user.id)) return msg.reply(`:no_entry_sign: You can\'t use the Pokemon commands because you haven\'t upvoted me.\nType, \`${this.client.commandPrefix}upvote\` for the steps on how to upvote me.`);
     if (cooldown[user.id] && cooldown[user.id].time > 0) return msg.say(`:no_entry_sign: **${user.username}**, you need to wait another **${moment.duration(cooldown[user.id].time).format(' H [hours], m [minutes] & s [seconds]')}** before catching another pokemon.`);
     if (!cooldown[user.id]) cooldown[user.id] = {time: 10800000};
+    try {
     cooldown[user.id].time = 10800000; //3 hours
       setInterval(() => {
-        cooldown[user.id].time -= 3000; //remove 3 seconds
-      }, 3000); //every 3 seconds
-    setTimeout(() => {
-      delete cooldown[user.id];
-    }, 10800000); //3 hours
+        cooldown[user.id].time -= 10000; //remove 10 seconds
+      }, 10000); //every 10 seconds
+      setTimeout(() => {
+        delete cooldown[user.id];
+      }, 10800000); //3 hours
+    } catch(e) {
+
+    }
 
     /*setInterval(() => {
       Object.keys(cooldown).forEach(key => {
@@ -52,7 +56,7 @@ module.exports = class PokemonCommand extends Command {
       Object.keys(data[user.id].pokemon).forEach(key => {
         arr.push(data[user.id].pokemon[key].name);
       });
-      if (arr.length > 150) return msg.reply('You\'ve already caught all 151 pokemon!');
+      if (arr.length === 151) return msg.reply('You\'ve already caught all 151 pokemon!');
       if (data[user.id].pokemon[newPokemon]) {
         data[user.id].pokemon[newPokemon].count++;
         fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2));
@@ -62,12 +66,12 @@ module.exports = class PokemonCommand extends Command {
           gif: `http://www.pokestadium.com/sprites/xy/${newPokemon.toLowerCase()}.gif`,
           count: 1
         }
-
         fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2));
       }
     }
 
-    msg.say(`**${user.username}**, you've caught a **${newPokemon}**!\nhttp://www.pokestadium.com/sprites/xy/${newPokemon.toLowerCase()}.gif`);
+    const pe = this.client.emojis.get('328574358710910978');
+    msg.say(`**${user.username}**, ${pe} you've caught a **${newPokemon}**!\nhttp://www.pokestadium.com/sprites/xy/${newPokemon.toLowerCase()}.gif`);
     addPokemon(newPokemon, user);
   }
 };

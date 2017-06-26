@@ -18,6 +18,10 @@ module.exports = class SetGameCommand extends Command {
     });
   }
 
+  hasPermission(msg) {
+    return this.client.options.owner === msg.author.id;
+  }
+
   async run(msg, args) {
     const { game } = args;
     const m = await msg.say('*Setting my game...*');

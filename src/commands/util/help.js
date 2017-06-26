@@ -31,7 +31,7 @@ module.exports = class HelpCommand extends Command {
 		});
 	}
 
-	async run(msg, args) { // eslint-disable-line complexity
+	async run(msg, args) {
 		const groups = this.client.registry.groups;
 		const commands = this.client.registry.findCommands(args.command, false, msg);
 		const showAll = args.command && args.command.toLowerCase() === 'all';
@@ -55,7 +55,7 @@ module.exports = class HelpCommand extends Command {
 				const messages = [];
 				messages.push(await msg.say(help));
 				return messages;
-			} else if(commands.length > 1) {
+			} else if (commands.length > 1) {
 				return msg.reply(disambiguation(commands, 'commands'));
 			} else {
 				return msg.reply(
@@ -96,7 +96,7 @@ module.exports = class HelpCommand extends Command {
             If you need help with anything, join Toasty HQ and ask for the dev.
           `}
 				`, { split: true }));
-				if(msg.channel.type !== 'dm') messages.push(await msg.reply('Sent you a DM with information.'));
+				if(msg.channel.type !== 'dm') messages.push(await msg.say(`**${msg.author.username}**, :mailbox_with_mail: Check your DM's!`));
 			} catch(err) {
 				messages.push(await msg.reply('Unable to send you the help DM. You probably have DMs disabled.'));
 			}

@@ -13,7 +13,7 @@ module.exports = class RestartCommand extends Command {
       args: [
         {
           key: 'restartType',
-          prompt: `Would you like to restart just this shard. or all shards?\n`,
+          prompt: 'Would you like to restart just this shard. or all shards?\n',
           type: 'string'
         }
       ]
@@ -28,7 +28,7 @@ module.exports = class RestartCommand extends Command {
     const restartType = args.restartType.toLowerCase();
     if (restartType === 'this') {
       msg.say(`\`\`\`css\nRestarting shard ${this.client.shard.id}...\`\`\``);
-      console.log(`Restarting shard ${client.shard.id}...`);
+      console.log(`Restarting shard ${this.client.shard.id}...`);
       setTimeout(() => { console.log(process.exit(0)); }, 400);
     } else
     if (restartType === 'all') {

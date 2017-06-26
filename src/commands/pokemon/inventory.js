@@ -14,12 +14,6 @@ module.exports = class InventoryCommand extends Command {
       guildOnly: true,
       args: [
         {
-          key: 'page',
-          prompt: 'What page of the inventory would you like to view?\n',
-          type: 'integer',
-          default: 1
-        },
-        {
           key: 'user',
           prompt: 'Who\'s pokemon inventory would you like to view?\n',
           type: 'user',
@@ -28,7 +22,7 @@ module.exports = class InventoryCommand extends Command {
       ],
       throttling: {
         usages: 1,
-        duration: 10
+        duration: 30
       }
     });
   }
@@ -44,16 +38,43 @@ module.exports = class InventoryCommand extends Command {
       toSend.push(data[user.id].pokemon[key].name);
     });
 
-    function showPage(i) {
-      let start = i * 10;
-      start += 1;
+    function showPage(page, m) {
+      if (toSend.length < 20) return m.edit(':no_entry_sign: No Pokemon on this page!');
+      let start = page * 10;
+      start += page;
       let stop = start + 20;
-      msg.say(`__**${user.username}'s Pokemon:**__ *[Page ${i} (20 shown)]*\n**${toSend.slice(start, stop).join('\n')}**`);
+      m.edit(`__**${user.username}'s Pokemon:**__ *[Page ${page} (20 shown)]*\n**${toSend.slice(start, stop).join('\n')}**`);
+      m.awaitReactions((reaction, user) => user.id === msg.author.id, {
+        max: 1,
+        time: 30000
+      }).then(reactions => {
+        if (reactions.first() == undefined) return;
+        if (reactions.first().emoji.name == '➡') {
+          showPage(page + 1, m);
+        } else if (reactions.first().emoji.name == '⬅') {
+          if (page === 1) msg.reply(':no_entry_sign: You can\'t go back a page if you\'re on page 1!');
+          else showPage(page - 1, m);
+        } else if (reactions.first().emoji.name == '❌') {
+          return m.edit('Pokemon inventory session ended.')
+        }
+      }).catch(() => m.edit('Pokemon inventory session ended.'));
     }
 
-    const { page } = args;
-    if (toSend.length > 20) setTimeout(() => { msg.say(`To show the next page of the inventory, type, ${this.client.commandPrefix}inventory [page number]`) }, 1000);
-    if (page === 1) msg.say(`__**${user.username}'s Pokemon:**__ Includes **${toSend.length}** Pokemon. *[Page 1 (20 shown)]* \n**${toSend.slice(0, 20).join('\n')}**`);
-    else showPage(page);
+    const m = await msg.say(`__**${user.username}'s Pokemon:**__ Includes **${toSend.length}** Pokemon. [Page 1] \n**${toSend.slice(0, 20).join('\n')}**\n⬅ - Show the last page\n➡ - Show the next page\n❌ - Cancels the session`);
+    m.react('⬅').then(() => m.react('➡').then(() => m.react('❌')));
+    m.awaitReactions((reaction, user) => user.id === msg.author.id, {
+      max: 1,
+      time: 30000
+    }).then(reactions => {
+      if (reactions.first() == undefined) return;
+      if (reactions.first().emoji.name == '➡') {
+        showPage(2, m);
+      } else if (reactions.first().emoji.name == '⬅') {
+        msg.reply(':no_entry_sign: You can\'t go back a page if you\'re on page 1!');
+      } else if (reactions.first().emoji.name == '❌') {
+        return m.clearReactions();
+      }
+    }).catch(() => m.clearReactions());
+
   }
 };
