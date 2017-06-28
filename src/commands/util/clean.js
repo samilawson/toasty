@@ -17,8 +17,13 @@ module.exports = class CleanCommand extends Command {
   async run(msg) {
     const m = await msg.say('*Cleaning my commands*...');
     const msgs = await msg.channel.fetchMessages({limit: 90});
-    let msg_array = msgs.array().filter(m => m.author.id === this.client.user.id);
+    let msg_array = msgs.array().filter
+    (m =>
+      m.author.id === this.client.user.id ||
+      m.content.startsWith(this.client.commandPrefix)
+    );
     msg.channel.bulkDelete(msg_array);
     m.edit(':white_check_mark: Successfully cleaned up my commands!');
+    setTimeout(() => { msg.delete(); }, 1000);
   }
 };

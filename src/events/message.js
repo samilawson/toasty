@@ -7,6 +7,7 @@ const yt = require('ytdl-core');
 const YouTube = require('youtube-node');
 const youTube = new YouTube();
 youTube.setKey(youTubeToken);
+const playlists = ['pop', 'hiphop', 'electro', 'classical', 'rock-n-roll', 'chill', 'jazz', 'metal', 'retro', 'korean', 'toast'];
 
 exports.run = (client, msg) => {
   if (msg.channel.type === 'dm') return;
@@ -59,7 +60,8 @@ const musicCommands = {
         msg.member.voiceChannel.leave();
       });
       msg.channel.send(`:notes: Now playing **${song.title}** as requested by **${song.requester}**`);
-      setTimeout(() => { dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes: 1 }); }, 300);
+      queue[msg.guild.id].nowPlaying = {title: song.title, requester: song.requester, url: song.url};
+      dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes: 1 });
       let collector = msg.channel.createCollector(m => m);
       collector.on('collect', m => {
         if (m.content.startsWith(prefix+'pause')) {
@@ -99,6 +101,9 @@ const musicCommands = {
           if (queue[msg.guild.id].paused) queue[msg.guild.id].paused = false;
           dispatcher.end();
           voiceChannel.leave();
+        } else if (m.content.startsWith(prefix+'np') || m.content.startsWith(prefix+'nowplaying')) {
+          let song = queue[msg.guild.id].nowPlaying;
+          msg.channel.send(`:notes: The song that is currently playing is **${song.title}** as requested by **${song.requester}**.\n${song.url}`);
         }
       });
       dispatcher.once('end', () => {
@@ -109,9 +114,9 @@ const musicCommands = {
         } else {
           setTimeout(() => {
             delete dispatcher;
-            if (queue[msg.guild.id].volume > 50) dispatcher.setVolume(queue[msg.guild.id].volume);
             play(queue[msg.guild.id].songs.shift());
           }, 200);
+          setTimeout(() => { if (queue[msg.guild.id].volume) dispatcher.setVolume(queue[msg.guild.id].volume) }, 1000);
         }
       });
       dispatcher.on('error', (err) => {
@@ -181,8 +186,10 @@ const musicCommands = {
     queue[msg.guild.id].songs.splice(0, queue[msg.guild.id].songs.length);
     msg.reply(':white_check_mark: I\'ve cleared the server queue.');
   },
+  'playlists': (msg) => {
+    msg.channel.send('Avaliable playlists include:\n`'+playlists.join(' ,')+'`');
+  },
   'playlist': (msg) => {
-    const playlists = ['pop', 'hiphop', 'electro', 'classical', 'rock-n-roll', 'chill', 'jazz', 'metal', 'retro', 'korean', 'toast'];
     if (msg.content === prefix+'playlist') return msg.reply(`Please specify a playlist to play!\nPlaylists: \`${playlists.join(', ')}\``);
     let playlist = msg.content.replace(prefix+'playlist ', '').toLowerCase();
     if (!playlists.includes(playlist)) return msg.reply(`That isnt an avaliable playlist.\nPlaylists: \`${playlists.join(', ')}\``);
@@ -192,12 +199,15 @@ const musicCommands = {
 
     async function doPlaylist(playlist, msg) {
       const m = await msg.channel.send(`Downloading the **${playlist}** playlist...`);
-      setTimeout(() => { m.edit(`Downloading the **${playlist}** playlist...\nPlease be patient, this may take up to two minutes.\nYou can run the \`play\` command while the playlist is downloading.`); }, 3000);
+      setTimeout(() => { m.edit(`Downloading the **${playlist}** playlist...\nPlease be patient, this may take up to a minute.\nYou can run the \`play\` command while the playlist is downloading to start listening to music.`); }, 3000);
       const songs = fs.readFileSync(path.join(__dirname, '..', '..', 'src', 'data', `playlists/${playlist}.txt`)).toString().split('\n');
 
+      const arr = new Array();
       for (let i = 0, len = songs.length; i < 15; i++) {
+        let r = Math.floor(Math.random() * (len - 0 + 1)) + 0;
+        arr.push(r);
+        if (arr.includes(r)) r = Math.floor(Math.random() * (len - 0 + 1)) + 0;
         if (i === 15) break;
-        const r = Math.floor(Math.random() * (len - 0 + 1)) + 0;
           try {
             const info = await getInfo(songs[r]);
             if (!queue.hasOwnProperty(msg.guild.id)) queue[msg.guild.id] = {}, queue[msg.guild.id].playing = false, queue[msg.guild.id].songs = [];
@@ -208,7 +218,7 @@ const musicCommands = {
             });
           } catch(e) {}
       }
-      m.edit(`:white_check_mark: The **${playlist}** playlist has been queued!\n15 songs have been queued from the playlist. To queue another 15 run the \`playlist\` command again.`);
+      m.edit(`:white_check_mark: The **${cap(playlist)}** playlist has been queued!\n15 songs have been queued from the playlist. To queue another 15 run the \`playlist\` command again.`);
     }
 
     doPlaylist(playlist, msg);

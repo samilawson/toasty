@@ -243,7 +243,7 @@
     "joinlog": "enabled"
   },
   "277783171762749443": {
-    "joinRole": "Uživatel",
+    "joinRole": "<@&305030481840439298>",
     "joinlog": "disabled"
   },
   "284281699440001035": {
@@ -506,10 +506,6 @@
     "joinDM": "```css\nWelcome to Genecide! We hope you will have a fun time here! -Wholf, Deletin, Toasty.\n```",
     "modlog": "enabled"
   },
-  "265893817717096450": {
-    "joinDM": "Welcome to Bolton County Discord if you haven't joined the group join it for the rank: https://www.roblox.com/my/groups.aspx . If you have joined the group DM or say your rank and some admin will role you. Faster way for that is to Name your self (roblox username)[your rank] BCSO. Thank you for Joining Bolton County!",
-    "modlog": "enabled"
-  },
   "294881677958971394": {
     "joinlog": "enabled"
   },
@@ -623,9 +619,6 @@
   "317570975908495361": {
     "joinRole": "Member"
   },
-  "321350509971767297": {
-    "modlog": "enabled"
-  },
   "297442085861064705": {
     "nonsfw": "enabled",
     "noinvite": "enabled",
@@ -667,5 +660,54 @@
   },
   "327572860308684810": {
     "joinDM": "Bienvenue ,Avant de compltement integrer notre communauté remplis ce formulaire stp 😉 :https://goo.gl/forms/uIk3vrDyG6jqZ7Ef1"
+  },
+  "218387443882262528": {
+    "joinDM": "Inscription INDY SPENSABLE\nMerci de remplir le formulaire afin de rejoindre officiellement la communauté ZeratoR!! Pensez à parrainer notre Zerator National si ce n'est pas déjà fait!! (ou si vous prenez un autre compte Albion Online.) Lien parainage : https://albiononline.com/?ref=ELSR5WMWG1 - Pensez y ça fera des PO pour ZeratoR et donc la guilde à la release!                                                                                                                                                                                https://docs.google.com/forms/d/e/1FAIpQLSfK9vHmfL6fTXQoKmP0z6Xu66wE0HVAmOK1LbtXxvMPMXEcbQ/viewform?c=0&w=1"
+  },
+  "328990263865376779": {
+    "joinlog": "enabled",
+    "modlog": "enabled",
+    "joinRole": "@members"
+  },
+  "328937866828972033": {
+    "modlog": "enabled",
+    "joinDM": "Welcome to the Indiana State Police discord. Please review the rules and abide by them. You have been given a citizen role by default. If you need other roles, ping a Sergeant+ for them.",
+    "joinRole": "Citizen",
+    "joinlog": "enabled"
+  },
+  "322575675896889345": {
+    "noinvite": "enabled",
+    "joinRole": "Players"
+  },
+  "318249817262260224": {
+    "joinMessage": "Welcome to another edition of Thunderdome {user}! Please read the <#318250036410580992> and post in <#318256026367295489>",
+    "leaveMessage": "{user} cannot enter Valhalla"
+  },
+  "323450936607375361": {
+    "nonsfw": "enabled"
+  },
+  "328292643656433665": {
+    "modlog": "enabled"
+  },
+  "317420664745361430": {
+    "modlog": "disabled"
+  },
+  "327125914230063105": {
+    "modlog": "enabled",
+    "nonsfw": "disabled",
+    "joinlog": "enabled"
+  },
+  "285457273730629632": {
+    "modlog": "enabled"
+  },
+  "294657571070017536": {
+    "joinlog": "enabled"
+  },
+  "329330718620778498": {
+    "joinMessage": "Welcome to %server%, %user%! Remember, N64 SUX PSX RULEZ N64 SUX PSX RULEZ N64 SUX PSX RULEZ.",
+    "leaveMessage": "%user% left %server%. Fuck that nerd."
+  },
+  "328879303183826955": {
+    "modlog": "enabled"
   }
 }

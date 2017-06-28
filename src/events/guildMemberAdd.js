@@ -48,14 +48,14 @@ exports.run = (client, member) => {
            .setTitle('Bot Joined:')
            .setDescription(`+ ${member.user.username}#${member.user.discriminator} (${member.user.id})`)
            .setFooter(`${date} at ${time}`);
-      guild.channels.find('name', 'join-log').send({ embed });
+      guild.channels.find('name', 'join-log').send({ embed }).catch((e) => console.log('Caught.'));
     } else {
       embed.setColor(0x32CD32)
            .setAuthor(member.user.username, member.user.avatarURL)
            .setTitle('User Joined:')
            .setDescription(`+ ${member.user.username}#${member.user.discriminator} (${member.user.id})`)
            .setFooter(date + ` at ` + time)
-      guild.channels.find('name', 'join-log').send({ embed });
+      guild.channels.find('name', 'join-log').send({ embed }).catch((e) => console.log('Caught.'));
     }
   }
 }

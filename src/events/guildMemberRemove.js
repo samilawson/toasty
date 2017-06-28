@@ -29,14 +29,14 @@ exports.run = (client, member) => {
            .setTitle('Bot Left:')
            .setDescription(`- ${member.user.username}#${member.user.discriminator} (${member.user.id})`)
            .setFooter(date + ` at ` + time);
-      guild.channels.find('name', 'join-log').send({ embed });
+      guild.channels.find('name', 'join-log').send({ embed }).catch((e) => console.log('Caught.'));
     } else {
       embed.setColor(0xFF0000)
            .setAuthor(member.user.username, member.user.avatarURL)
            .setTitle('User Left:')
            .setDescription(`- ${member.user.username}#${member.user.discriminator} (${member.user.id})`)
            .setFooter(date + ` at ` + time);
-      guild.channels.find('name', 'join-log').send({ embed });
+      guild.channels.find('name', 'join-log').send({ embed }).catch((e) => console.log('Caught.'));
     }
   }
 }
