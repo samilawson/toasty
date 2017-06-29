@@ -3,7 +3,6 @@ const randomPokemon = require('pokemon-random-name');
 const fs = require('fs');
 const path = require('path');
 const jsonPath = path.join(__dirname, '..', '..', 'data/pokemon.json');
-const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 const moment = require('moment');
 require('moment-duration-format');
 const cooldown = new Object();
@@ -26,6 +25,7 @@ module.exports = class PokemonCommand extends Command {
 
   async run(msg) {
     const user = msg.author;
+    const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
     const users = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data/users.json')));
     if (!users.includes(user.id)) return msg.reply(`:no_entry_sign: You can\'t use the Pokemon commands because you haven\'t upvoted me.\nType, \`${this.client.commandPrefix}upvote\` for the steps on how to upvote me.`);
     if (cooldown[user.id] && cooldown[user.id].time > 0) return msg.say(`:no_entry_sign: **${user.username}**, you need to wait another **${moment.duration(cooldown[user.id].time).format(' H [hours], m [minutes] & s [seconds]')}** before catching another pokemon.`);

@@ -40,5 +40,3 @@ fs.readdir(`${__dirname}/events/`, (err, files) => {
 });
 
 client.login(config.token);
-
-process.on('unhandledRejection', err => console.log(`Uncaught Promise Error`));
