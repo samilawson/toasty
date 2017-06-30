@@ -1,5 +1,5 @@
 # toasty
-Toasty. The fun, moderating, music playing and delicious multi-purpose Discord bot!
+Toasty. The fun, moderating, music playing, and delicious multi-purpose Discord bot!
 
 [Website](http://toastythebot.tk)
 
